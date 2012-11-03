@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tinypuck</title>
+  <title>Steelpuck | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -17,15 +17,16 @@
 			
 			<div class="span3">
 				
+  <% if @logged_in %>
 				<div class="account-container">
 				
 					<div class="account-avatar">
-						<img src="https://si0.twimg.com/profile_images/2750699382/a50cc71f34c1a7f17e368a6f484c6e02_bigger.png" alt="" class="thumbnail" />
+            <%= gravatar_for @user %>
 					</div> <!-- /account-avatar -->
 				
 					<div class="account-details">
 					
-						<span class="account-name">Loren Feldman</span>
+            <span class="account-name"><%= @user.name %></span>
 						<span class="account-role">Administrator</span>
 						
 						<span class="account-actions">
@@ -48,16 +49,12 @@
 							Dashboard 		
 						</a>
 					</li>
-					
-					
 					<li>
 						<a href="./account.html">
 							<i class="icon-user"></i>
 							User Account							
 						</a>
 					</li>
-					
-					
 				</ul>	
 				
 				<hr />
@@ -67,12 +64,18 @@
 				</div> <!-- .sidebar-extra -->
 				
 				<br />
-		
+      <% else %>
+        <p>&nbsp;</p>
+      <% end %>	
 			</div> <!-- /span3 -->
 			
 			<div class="span9">
 
-<%= yield %>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+        
+        <%= yield %>
 
 			</div> <!-- /span9 -->
 		</div> <!-- /row -->
@@ -80,7 +83,7 @@
 </div> <!-- /content -->
 					
   <%= render 'layouts/footer' %>
-
+  <%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>

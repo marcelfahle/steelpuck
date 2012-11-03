@@ -5,7 +5,9 @@ Tinypuck::Application.routes.draw do
 
   root :to => 'static_pages#home'
 
-  get "users/new"
+  resources :users
+  match '/signup' => 'users#new'
+  match '/dashboard' => 'static_pages#dashboard'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
