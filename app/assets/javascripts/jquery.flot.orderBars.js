@@ -14,9 +14,9 @@
  * The plugin adjust the point by adding a value depanding of the barwidth
  * Exemple for 3 series (barwidth : 0.1) :
  *
- *          first bar décalage : -0.15
- *          second bar décalage : -0.05
- *          third bar décalage : 0.05
+ *          first bar dcalage : -0.15
+ *          second bar dcalage : -0.05
+ *          third bar dalage : 0.05
  *
  */
 

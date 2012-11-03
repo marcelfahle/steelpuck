@@ -8,7 +8,79 @@
 </head>
 <body>
 
+  <%= render 'layouts/header' %>
+
+<div id="content">
+	
+	<div class="container">
+		<div class="row">
+			
+			<div class="span3">
+				
+				<div class="account-container">
+				
+					<div class="account-avatar">
+						<img src="https://si0.twimg.com/profile_images/2750699382/a50cc71f34c1a7f17e368a6f484c6e02_bigger.png" alt="" class="thumbnail" />
+					</div> <!-- /account-avatar -->
+				
+					<div class="account-details">
+					
+						<span class="account-name">Loren Feldman</span>
+						<span class="account-role">Administrator</span>
+						
+						<span class="account-actions">
+							<a href="javascript:;">Profile</a> |
+							
+							<a href="javascript:;">Edit Settings</a>
+						</span>
+					
+					</div> <!-- /account-details -->
+				
+				</div> <!-- /account-container -->
+				
+				<hr />
+				
+				<ul id="main-nav" class="nav nav-tabs nav-stacked">
+					
+					<li class="active">
+						<a href="./">
+							<i class="icon-home"></i>
+							Dashboard 		
+						</a>
+					</li>
+					
+					
+					<li>
+						<a href="./account.html">
+							<i class="icon-user"></i>
+							User Account							
+						</a>
+					</li>
+					
+					
+				</ul>	
+				
+				<hr />
+				
+				<div class="sidebar-extra">
+          <p><strong>System News 09-21-2012: </strong> <br />A new feature has been added to do all kinds of cool things. <a href="#">Learn More</a></p>
+				</div> <!-- .sidebar-extra -->
+				
+				<br />
+		
+			</div> <!-- /span3 -->
+			
+			<div class="span9">
+
 <%= yield %>
+
+			</div> <!-- /span9 -->
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+</div> <!-- /content -->
+					
+  <%= render 'layouts/footer' %>
+
 
 </body>
 </html>
