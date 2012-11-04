@@ -8,4 +8,8 @@ class StaticPagesController < ApplicationController
   def dashboard
     @user = User.find(1)
   end
+
+  def comingsoon
+    
+  end
 end

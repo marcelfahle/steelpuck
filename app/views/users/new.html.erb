@@ -1,30 +1,55 @@
 <% provide(:title, "Sign up") %>
-<h1>Sign up</h1>
 
-<div class="row">
-  <div class="span9">
+<div class="span12">
+  <div id="login-container">
+    <div id="login-header">
+      <h3>Sign up</h3>
+    </div>
+
+    <div id="login-content" class="clearfix">
     
-    <%= form_for(@user) do |f| %>
+      <%= form_for(@user) do |f| %>
 
-      <%= render 'shared/error_messages' %>
+        <%= render 'shared/error_messages' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+        <fieldset>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.label :name %>
+              <%= f.text_field :name %>
+            </div>  
+          </div>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.label :email %>
+              <%= f.text_field :email %>
+            </div>  
+          </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.label :password %>
+              <%= f.password_field :password %>
+            </div>  
+          </div>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.label :password_confirmation, "Confirmation" %>
+              <%= f.password_field :password_confirmation %>
+            </div>  
+          </div>
+        </fieldset>
 
-      <%= f.submit "Create my Account", class: "btn btn-large btn-primary" %>
+
+        <div class="pull-right">
+          <%= f.button "Create my Account", class: "btn btn-large btn-warning", type: "submit" %>
+        </div>
 
 
-    <% end %>
-
-
+      <% end %>
+    </div>
   </div>
+
 </div>

@@ -10,7 +10,7 @@
 				<span class="icon-bar"></span> 				
 			</a>
 			
-			<a class="brand" href="/">The Steelpuck Admin</a>
+			<a class="brand" id="homelink" href="/">The Steelpuck Admin</a>
 			
 			<div class="nav-collapse">
 			
@@ -21,28 +21,27 @@
 					
 					<li class="divider-vertical"></li>
 					
-					<li class="dropdown">
-						
-						<a data-toggle="dropdown" class="dropdown-toggle " href="#">
-							Loren Feldman <b class="caret"></b>							
-						</a>
-						
-						<ul class="dropdown-menu">
-							<li>
-								<a href="./account.html"><i class="icon-user"></i> Account Setting  </a>
-							</li>
-							
-							<li>
-								<a href="./change_password.html"><i class="icon-lock"></i> Change Password</a>
-							</li>
-							
-							<li class="divider"></li>
-							
-							<li>
-								<a href="./"><i class="icon-off"></i> Logout</a>
-							</li>
-						</ul>
-					</li>
+          <% if signed_in? %>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle " href="#">
+                <%= current_user.name %> <b class="caret"></b>							
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="<%= user_path(current_user) %>"><i class="icon-user"></i> Profile Settings </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                  <!--<a href="./"><i class="icon-off"></i> Logout</a>//-->
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li class=" ">
+              <%= link_to "Sign in", signin_path %>
+            </li>
+          <% end %>
 				</ul>
 				
 			</div> <!-- /nav-collapse -->

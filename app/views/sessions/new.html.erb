@@ -1,0 +1,58 @@
+<% provide(:title, "Sign in") %>
+
+<div id="login-container">
+	
+	
+	<div id="login-header">
+		
+		<h3>Sign in</h3>
+		
+	</div> <!-- /login-header -->
+	
+	<div id="login-content" class="clearfix">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+	
+  <%= form_for(:session, url: sessions_path) do |f| %>
+
+    <fieldset>
+      <div class="control-group">
+				<div class="controls">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>  
+      </div>
+
+
+      <div class="control-group">
+        <div class="controls">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
+      </div>
+    </fieldset>
+
+    <div id="remember-me" class="pull-left">
+      <input type="checkbox" name="remember" id="remember" />
+      <label id="remember-label" for="remember">Remember Me</label>
+    </div>
+
+		<div class="pull-right">
+      <%= f.button "Sign in", class: "btn btn-warning btn-large", type: "submit" %>
+    </div>
+
+      <% end %>
+		</div> <!-- /login-content -->
+		
+		
+		<div id="login-extra">
+			
+      <p>Don't have an account? <%= link_to "Sign up", signup_path %></p>
+			
+			<p>Remind Password? <a href="/comingsoon">Retrieve.</a></p>
+			
+		</div> <!-- /login-extra -->
+	
+</div> <!-- /login-wrapper -->
+

@@ -10,77 +10,14 @@
 
   <%= render 'layouts/header' %>
 
-<div id="content">
-	
-	<div class="container">
-		<div class="row">
 			
-			<div class="span3">
-				
-  <% if @logged_in %>
-				<div class="account-container">
-				
-					<div class="account-avatar">
-            <%= gravatar_for @user %>
-					</div> <!-- /account-avatar -->
-				
-					<div class="account-details">
-					
-            <span class="account-name"><%= @user.name %></span>
-						<span class="account-role">Administrator</span>
-						
-						<span class="account-actions">
-							<a href="javascript:;">Profile</a> |
-							
-							<a href="javascript:;">Edit Settings</a>
-						</span>
-					
-					</div> <!-- /account-details -->
-				
-				</div> <!-- /account-container -->
-				
-				<hr />
-				
-				<ul id="main-nav" class="nav nav-tabs nav-stacked">
-					
-					<li class="active">
-						<a href="./">
-							<i class="icon-home"></i>
-							Dashboard 		
-						</a>
-					</li>
-					<li>
-						<a href="./account.html">
-							<i class="icon-user"></i>
-							User Account							
-						</a>
-					</li>
-				</ul>	
-				
-				<hr />
-				
-				<div class="sidebar-extra">
-          <p><strong>System News 09-21-2012: </strong> <br />A new feature has been added to do all kinds of cool things. <a href="#">Learn More</a></p>
-				</div> <!-- .sidebar-extra -->
-				
-				<br />
-      <% else %>
-        <p>&nbsp;</p>
-      <% end %>	
-			</div> <!-- /span3 -->
-			
-			<div class="span9">
 
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
-        
-        <%= yield %>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
+  
+  <%= yield %>
 
-			</div> <!-- /span9 -->
-		</div> <!-- /row -->
-	</div> <!-- /container -->
-</div> <!-- /content -->
 					
   <%= render 'layouts/footer' %>
   <%= debug(params) if Rails.env.development? %>

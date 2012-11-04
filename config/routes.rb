@@ -6,8 +6,14 @@ Tinypuck::Application.routes.draw do
   root :to => 'static_pages#home'
 
   resources :users
-  match '/signup' => 'users#new'
-  match '/dashboard' => 'static_pages#dashboard'
+  resources :sessions, only: [:new, :create, :destroy]
+  
+  match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
+  match '/dashboard', to: 'static_pages#dashboard'
+  match '/comingsoon', to: 'static_pages#comingsoon'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
