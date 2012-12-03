@@ -1,0 +1,12 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= gravatar_for user, 25 %> <%= link_to user.name, user %></td>
+  <td></td>
+  <td></td>
+  <td>
+    <% if current_user.admin? && !current_user?(user) %>
+      <%= link_to raw("<i class='icon-remove'></i>"), user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-small" %>
+    <% end %>
+  </td>
+
+</tr>

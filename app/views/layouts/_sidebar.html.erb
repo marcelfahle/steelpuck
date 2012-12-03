@@ -3,18 +3,17 @@
 				<div class="account-container">
 				
 					<div class="account-avatar">
-            <%= gravatar_for @user %>
+            <%= gravatar_for current_user %>
 					</div> <!-- /account-avatar -->
 				
 					<div class="account-details">
 					
-            <span class="account-name"><%= @user.name %></span>
+            <span class="account-name"><%= current_user.name %></span>
 						<span class="account-role">Administrator</span>
 						
 						<span class="account-actions">
-							<a href="javascript:;">Profile</a> |
-							
-							<a href="javascript:;">Edit Settings</a>
+              <%= link_to "Profile", edit_user_path(current_user) %> |
+							<%= link_to "Account", edit_user_path(current_user) %>
 						</span>
 					
 					</div> <!-- /account-details -->
@@ -25,8 +24,8 @@
 				
 				<ul id="main-nav" class="nav nav-tabs nav-stacked">
 					
-					<li class="active">
-						<a href="./">
+					<li>
+						<a href="/dashboard">
 							<i class="icon-home"></i>
 							Dashboard 		
 						</a>

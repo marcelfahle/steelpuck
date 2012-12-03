@@ -12,11 +12,20 @@
 
 			
 
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-  <% end %>
-  
-  <%= yield %>
+<div id="content">
+	<div class="container">
+		<div class="row">
+
+      <% if signed_in? %>
+        <%= render 'layouts/sidebar' %>
+      <% end %>
+
+        
+        <%= yield %>
+
+    </div>
+  </div>
+</div>
 
 					
   <%= render 'layouts/footer' %>
